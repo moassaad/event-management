@@ -4,25 +4,50 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Event {
-    private  int eventId;
+    private  int id;
     private String title;
     private String type;
     private int capacity;
     private List<Member> members;
 
-    public Event(int eventId, String title, int capacity, String type) {
-        this.eventId = eventId;
-        this.title = title;
-        this.capacity = capacity;
-        this.type = type;
+    public Event() {
         this.members = new ArrayList<>();
     }
-    public int getEventId() {
-        return eventId;
+
+    public int getId() {
+        return id;
     }
 
-    public String getType() {
-        return type;
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public String getTitle() {
+        return title;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
+    }
+
+    public void setType(String type) {
+        this.type = type;
+    }
+
+    public int getCapacity() {
+        return capacity;
+    }
+
+    public void setCapacity(int capacity) {
+        this.capacity = capacity;
+    }
+
+    public List<Member> getMembers() {
+        return members;
+    }
+
+    public void setMembers(List<Member> members) {
+        this.members = members;
     }
 
     public boolean registerMember(Member member) {
@@ -35,8 +60,15 @@ public class Event {
         members.add(member);
         return true;
     }
+    public boolean isCapacityFull() {
+        return members.size() == this.capacity;
+    }
+    public List<Member> listMembers() {
+        return this.members;
+    }
+
     @Override
     public String toString() {
-        return eventId + " | " + title + " | " + type + " | Seats: " + members.size() + "/" + capacity;
+        return this.id + " | " + this.title + " | " + this.type + " | Seats: " + this.members.size() + "/" + this.capacity;
     }
 }
