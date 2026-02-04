@@ -40,6 +40,7 @@ public class Member implements PointsRule {
         }
 
     }
+    public int getId() { return this.id; }
     public void setName(String name) throws Exception {
         if (isNameNotEmpty(name)) {
             this.name = name;

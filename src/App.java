@@ -1,4 +1,6 @@
 import model.Event;
+import model.Member;
+import service.RegistrationService;
 import ui.EventUI;
 import ui.MemberUI;
 import ui.UI;
@@ -21,7 +23,6 @@ public class App {
             switch (choice) {
                 case 1:
                     try {
-//                        Scanner inputChoiceTypeMember = new Scanner(System.in);
 
                         System.out.print(memberUi.choiceMemberType());
                         System.out.print("~# ");
@@ -44,6 +45,7 @@ public class App {
                     break;
 
                 case 2:
+
                     menu.listMembers().forEach(System.out::println);
                     break;
 
@@ -93,6 +95,32 @@ public class App {
                         int eventId = input.nextInt();
 
                         Event event = menu.findEventById(eventId);
+
+                        System.out.println(memberUi.chooseMemberNumber());
+                        System.out.println("-----------------------");
+                        if (menu.listMember().isEmpty())
+                        {
+                            System.out.println("No Member Yet.");
+                            break;
+                        }
+
+                        for(Member member: menu.listMember())
+                        {
+                            System.out.println(member);
+                        }
+
+                        System.out.println("-----------------------");
+
+                        System.out.print(memberUi.enterId());
+                        System.out.print("~# ");
+                        int memberId = input.nextInt();
+
+                        Member member = menu.findMemberById(memberId);
+
+                        RegistrationService registrationService = new RegistrationService();
+
+                        registrationService.registerMember(member, event);
+
 
                     } catch (Exception e) {
                         System.out.println(e.getMessage());

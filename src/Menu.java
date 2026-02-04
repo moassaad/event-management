@@ -49,4 +49,16 @@ public class Menu {
         }
         return null;
     }
+    public List<Member> listMember() {
+        return this.storeMember;
+    }
+    public Member findMemberById(int id) {
+        for(Member member : this.storeMember) {
+            if(member.getId() == id)
+            {
+                return member;
+            }
+        }
+        return null;
+    }
 }

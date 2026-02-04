@@ -60,6 +60,12 @@ public class Event {
         members.add(member);
         return true;
     }
+    public void addMember(Member member) throws Exception {
+        if (members.contains(member)) {
+            throw new Exception("Member already exists");
+        }
+        members.add(member);
+    }
     public boolean isCapacityFull() {
         return members.size() == this.capacity;
     }
