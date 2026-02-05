@@ -19,4 +19,7 @@ public class MemberUI {
     public String chooseMemberNumber() {
         return "Choose Member Number";
     }
+    public String enterPoint() {
+        return "Enter Point";
+    }
 }

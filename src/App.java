@@ -1,5 +1,7 @@
 import model.Event;
 import model.Member;
+import model.OfficerMember;
+import model.RegularMember;
 import service.RegistrationService;
 import ui.EventUI;
 import ui.MemberUI;
@@ -128,7 +130,46 @@ public class App {
                     break;
 
                 case 5:
-                    System.out.println("You chose Modulus");
+                    try{
+                        System.out.println(memberUi.chooseMemberNumber());
+                        System.out.println("-----------------------");
+                        if (menu.listMember().isEmpty())
+                        {
+                            System.out.println("No Member Yet.");
+                            break;
+                        }
+
+                        for(Member member: menu.listMember())
+                        {
+                            System.out.println(member);
+                        }
+
+                        System.out.println("-----------------------");
+
+                        System.out.print(memberUi.enterId());
+                        System.out.print("~# ");
+                        int memberId = input.nextInt();
+
+                        System.out.print(memberUi.enterPoint());
+                        System.out.print("~# ");
+                        double points = input.nextDouble();
+
+                        Member member = menu.findMemberById(memberId);
+
+                        if (member instanceof OfficerMember)
+                        {
+                            ((OfficerMember) member).updatePointsBuons(points);
+                        }else if (member instanceof RegularMember){
+                            member.updatePoints(points);
+                        }
+
+
+                        System.out.println("Update Points is Successfully");
+                        System.out.println(member.toString());
+
+                    } catch (Exception e) {
+                        System.out.println(e.getMessage());
+                    }
                     break;
 
                 case 6:
