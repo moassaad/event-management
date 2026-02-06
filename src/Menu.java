@@ -6,6 +6,7 @@ import service.EventService;
 import service.MemberService;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 public class Menu {
@@ -60,5 +61,28 @@ public class Menu {
             }
         }
         return null;
+    }
+    public List<Member> listMemberOrderByPointsDesc() throws Exception {
+//        List<Member> members = new ArrayList<>();
+        List<Member> storeMembers = new ArrayList<>(this.storeMember);
+        if(this.storeMember.isEmpty()){
+            throw new Exception("Not Found Members");
+        }
+        Collections.sort(storeMembers);
+
+        return storeMembers;
+//        Member maxMemberPoints = storeMembers.get(0);
+//        for (int index=0; index < this.storeMember.size(); index++)
+//        {
+//
+//            for(Member member : storeMembers) {
+//                if(member.getPoints() > maxMemberPoints.getPoints())
+//                {
+//                    maxMemberPoints = member;
+//                }
+//            }
+//            members.add(maxMemberPoints);
+//            storeMembers.remove(maxMemberPoints);
+//        }
     }
 }

@@ -2,7 +2,7 @@ package model;
 
 import service.contracts.PointsRule;
 
-public class Member implements PointsRule {
+public class Member implements PointsRule, Comparable<Member> {
     protected int id;
     protected String name;
     protected String email;
@@ -107,5 +107,9 @@ public class Member implements PointsRule {
         if (isPositive(value)) {
             this.points += value * 2;
         }
+    }
+    @Override
+    public int compareTo(Member other) {
+        return Double.compare(this.points, other.points);
     }
 }

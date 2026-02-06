@@ -22,4 +22,7 @@ public class MemberUI {
     public String enterPoint() {
         return "Enter Point";
     }
+    public String leaderboard(){
+        return "Leaderboard";
+    }
 }
