@@ -31,6 +31,15 @@ The main objective of this project is to:
 - Apply decision-making and looping structures. 
 - Demonstrate clean OOP design with proper separation of responsibilities.
 
+## 📂 Project Structure
+
+- App.java – Main entry point and menu handling
+- Member.java – Base member class
+- RegularMember.java – Standard member implementation
+- OfficerMember.java – Extended member with extra privileges
+- Event.java – Event entity and capacity management
+
+
 ## ⚙️ Core Features
 ### 1️⃣ Main Menu
 
