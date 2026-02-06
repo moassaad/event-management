@@ -26,10 +26,25 @@ public class Application {
         int start = 0;
         while (start < credits) {
             System.out.println(ui.view());
-//            Scanner input = new Scanner(System.in);
             System.out.print("~# ");
             int choice = input.nextInt();
             switch (choice) {
+                case 0:
+                    try{
+                        System.out.println("-----------------------");
+                        System.out.println("Your credits is " + (credits - start));
+                        System.out.println("-----------------------");
+                        System.out.print("Number of credits ~# ");
+                        int newCredits = input.nextInt();
+                        if(newCredits <= 0){
+                            throw new Exception("You can't add negative number or zero.");
+                        }
+                        credits += newCredits;
+
+                    } catch (Exception e) {
+                        System.out.println(e.getMessage());
+                    }
+                    break;
                 case 1:
                     try {
 
@@ -47,6 +62,7 @@ public class Application {
 
                         menu.addMember(choiceType, name, email);
 
+                        System.out.println("Successfully");
                     }catch (Exception e) {
                         System.out.println(e.getMessage());
                     }
@@ -63,10 +79,9 @@ public class Application {
                             break;
                         }
 
-                        menu.listMembers().forEach(System.out::println);
+                        menu.listMember().forEach(System.out::println);
 
                         System.out.println("-----------------------");
-//                        menu.listMembers().forEach(System.out::println);
                     } catch (Exception e) {
                         System.out.println(e.getMessage());
                     }
@@ -88,6 +103,7 @@ public class Application {
                         String type = input.next();
 
                         menu.createEvent(title, capacity, type);
+                        System.out.println("Successfully");
                     } catch (Exception e) {
                         System.out.println(e.getMessage());
                     }
@@ -104,10 +120,7 @@ public class Application {
                             break;
                         }
 
-                        for(Event event: menu.listEvent())
-                        {
-                            System.out.println(event);
-                        }
+                        menu.listEvent().forEach(System.out::println);
 
                         System.out.println("-----------------------");
 
@@ -125,10 +138,7 @@ public class Application {
                             break;
                         }
 
-                        for(Member member: menu.listMember())
-                        {
-                            System.out.println(member);
-                        }
+                        menu.listMember().forEach(System.out::println);
 
                         System.out.println("-----------------------");
 
@@ -142,6 +152,7 @@ public class Application {
 
                         registrationService.registerMember(member, event);
 
+                        System.out.println("Successfully");
 
                     } catch (Exception e) {
                         System.out.println(e.getMessage());
@@ -158,10 +169,7 @@ public class Application {
                             break;
                         }
 
-                        for(Member member: menu.listMember())
-                        {
-                            System.out.println(member);
-                        }
+                        menu.listMember().forEach(System.out::println);
 
                         System.out.println("-----------------------");
 
@@ -183,8 +191,8 @@ public class Application {
                         }
 
 
-                        System.out.println("Update Points is Successfully");
                         System.out.println(member.toString());
+                        System.out.println("Successfully");
 
                     } catch (Exception e) {
                         System.out.println(e.getMessage());
@@ -196,26 +204,23 @@ public class Application {
                         System.out.println(memberUi.leaderboard());
                         System.out.println("-----------------------");
 
-                        for(Member member: menu.listMemberOrderByPointsDesc())
-                        {
-                            System.out.println(member);
-                        }
+                        menu.listMemberOrderByPointsDesc().forEach(System.out::println);
 
                         System.out.println("-----------------------");
                     } catch (Exception e) {
                         System.out.println(e.getMessage());
                     }
                     break;
-
                 case 7:
                     System.out.println("Bye :)");
-                    return;
-//                    break;
-
+                    start = credits;
+                    break;
                 default:
                     System.out.println("Invalid choice! Please choose between 1 and 7.");
             }
             start++;
+            System.out.println("Bye :)");
         }
+        System.out.println("Your credits is over, Bye :)");
     }
 }

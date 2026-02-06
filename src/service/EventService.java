@@ -1,7 +1,6 @@
 package service;
 
 import model.Event;
-import model.OfficerMember;
 
 public class EventService {
     public Event createEvent(int id, String title, int capacity, String type) throws Exception {

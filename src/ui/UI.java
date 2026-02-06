@@ -3,7 +3,7 @@ package ui;
 public class UI {
     public String banner() {
         return """
-             __  __ ____     _____                     
+             __  __ ____    _____                     
             |  \\/  |  _ \\  |_   _|__  __ _ _ __ ___  
             | |\\/| | |_) |   | |/ _ \\/ _` | '_ ` _ \\ 
             | |  | |  _ <    | |  __/ (_| | | | | | | 
@@ -23,13 +23,14 @@ public class UI {
     }
     public String view(){
         return """
+                0- Change Credits
                 1- Add member
                 - List members
                 - Create event
                 - Register member to event
                 - Give points
                 - Show leaderboard
-                - Exit
+                7- Exit
                 """;
     }
 }

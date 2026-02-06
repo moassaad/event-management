@@ -3,8 +3,8 @@ package ui;
 public class MemberUI {
     public String choiceMemberType(){
         return """
-                1 Officer Member
-                 Regular Member
+                1- Officer Member
+                - Regular Member
                 """;
     }
     public String enterId(){

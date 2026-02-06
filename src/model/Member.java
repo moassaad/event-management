@@ -78,7 +78,6 @@ public class Member implements PointsRule, Comparable<Member> {
         return this.points;
     }
 
-    // Controlled points update (encapsulation)
     public void updatePoints(double value) {
         if (isPositive(value)) {
             this.points += value;

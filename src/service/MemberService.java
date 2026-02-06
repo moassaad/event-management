@@ -1,6 +1,5 @@
 package service;
 
-import model.Member;
 import model.OfficerMember;
 import model.RegularMember;
 
