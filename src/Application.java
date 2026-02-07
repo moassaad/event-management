@@ -54,7 +54,7 @@ public class Application {
 
                         System.out.print(memberUi.enterName());
                         System.out.print("~# ");
-                        String name = input.next();
+                        String name = input.nextLine();
 
                         System.out.print(memberUi.enterEmail());
                         System.out.print("~# ");
@@ -92,7 +92,7 @@ public class Application {
 
                         System.out.print(eventUi.enterTitle());
                         System.out.print("~# ");
-                        String title = input.next();
+                        String title = input.nextLine();
 
                         System.out.print(eventUi.enterCapacity());
                         System.out.print("~# ");
@@ -100,7 +100,7 @@ public class Application {
 
                         System.out.print(eventUi.enterType());
                         System.out.print("~# ");
-                        String type = input.next();
+                        String type = input.nextLine();
 
                         menu.createEvent(title, capacity, type);
                         System.out.println("Successfully");
